@@ -1,0 +1,10 @@
+{
+  "short_name": "Enes Portfolio",
+  "name": "Muhammed Enes Akbulut - Portfolio",
+  "description": "Full-stack Developer Portfolio",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#6366f1",
+  "background_color": "#ffffff",
+  "lang": "tr"
+}
