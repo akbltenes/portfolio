@@ -6,6 +6,7 @@ import {
   FiCode,
   FiServer,
   FiSmartphone,
+  FiDownload,
 } from "react-icons/fi";
 import {
   SiReact,
@@ -87,6 +88,14 @@ const Home = () => {
                   <FiMail className="mr-2" />
                   <span>İletişime Geç</span>
                 </Link>
+                <a
+                  href="/enescv (2).pdf"
+                  download="Muhammed_Enes_Akbulut_CV.pdf"
+                  className="btn-secondary"
+                >
+                  <FiDownload className="mr-2" />
+                  <span>CV İndir</span>
+                </a>
               </div>
             </div>
 
