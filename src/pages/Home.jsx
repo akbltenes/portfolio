@@ -98,12 +98,11 @@ const Home = () => {
                   {/* Photo with aspect ratio preservation */}
                   <div className="relative aspect-square w-80 md:w-96 rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700">
                     <img
-                      src="/images/profilfoto.jpg"
+                      src="/images/profil2.jpg"
                       alt="Muhammed Enes Akbulut"
                       className="w-full h-full object-cover scale-110"
-                      style={{ objectPosition: "center 62%" }}
+                      style={{ objectPosition: "center 39%" }}
                       onError={(e) => {
-                        // Fotoğraf yüklenemezse placeholder göster
                         e.target.style.display = "none";
                         e.target.nextSibling.style.display = "flex";
                       }}

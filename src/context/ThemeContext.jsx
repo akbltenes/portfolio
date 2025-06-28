@@ -12,7 +12,6 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
-    // Initialize state from localStorage immediately
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       return savedTheme === "dark";
@@ -21,7 +20,6 @@ export const ThemeProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    // Apply the theme to document on mount
     if (isDark) {
       document.documentElement.classList.add("dark");
     } else {

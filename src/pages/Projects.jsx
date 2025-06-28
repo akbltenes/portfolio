@@ -8,9 +8,8 @@ const Projects = () => {
       title: "Hoaxify",
       description:
         "Bir arkadaşım ile ekip olarak geliştirdiğimiz, Twitter tarzında bir sosyal medya uygulamasıdır. Kullanıcıların anlık paylaşımlar yapabildiği, birbirlerini takip edip etkileşimde bulunabildiği dinamik bir platform. İçerik paylaşma, beğenme, yorum yapma ve etkileşim özellikleri ile hızlı ve akıcı iletişimi sağlar. Takım çalışmasıyla modern teknolojilerle gerçek dünya uygulaması geliştirme deneyimi.",
-      image: null,
+      image: "/images/hoaxify.png",
       technologies: ["React", "Spring Boot", "PostgreSQL", "REST API"],
-      githubUrl: "https://github.com/muhammedenesAkbulut/hoaxify",
       liveUrl: "https://hoaxify.vercel.app/feed",
       category: "Full-stack",
     },
@@ -18,10 +17,9 @@ const Projects = () => {
       id: 2,
       title: "Blurr",
       description:
-        "Hala gelişirmekte olduğum Blurr, gizliliği ön planda tutan mobil sosyal iletişim uygulamasıdır. Kullanıcılar anonim olarak sohbet edebilir, story paylaşabilir ve mesajlaşabilir. Tamamen anonim mesajlaşma sistemi, gizli takip sistemi ve mahremiyet odaklı deneyim sunar. Klasik sosyal medyadan farklı olarak, kullanıcıların kendilerini rahatça ifade edebileceği güvenli bir alan oluşturmayı amaçlar.",
-      image: null,
+        "Hala gelişirmekte olduğum Blurr, gizliliği ön planda tutan mobil sosyal iletişim uygulamasıdır. Kullanıcılar anonim olarak sohbet edebilir, story paylaşabilir ve mesajlaşabilir. Tamamen anonim mesajlaşma sistemi, gizli takip sistemi ve mahremiyet odaklı deneyim sunar. Klasik sosyal medyadan farklı olarak, kullanıcıların kendilerini rahatça ifade edebileceği güvenli bir alan oluşturmayı amaçlar.Uygulamanın ismine ve içeriğine vurgu yapmak amacıyla logosunu özel olarak bulanık şekilde tasarladım.",
+      image: "/images/Blurr.png",
       technologies: ["React Native", "Firebase"],
-      githubUrl: "https://github.com/muhammedenesAkbulut/blurr",
       liveUrl: null,
       category: "Mobile",
     },
@@ -30,9 +28,8 @@ const Projects = () => {
       title: "Family Album",
       description:
         "Aile bireylerinin dijital ortamda anılarını paylaşabilmesi için geliştirdiğim modern bir fotoğraf paylaşım platformudur. QR kod ile kolay erişim, fotoğraf yükleme, yükleyen kişi ve zaman bilgisi görüntüleme özelliklerine sahiptir. Duyguları teknolojiyle buluşturan, kullanıcı deneyimini ön planda tutan özel bir projedir.",
-      image: null,
+      image: "/images/family-album.png",
       technologies: ["TypeScript", "React", "PostgreSQL"],
-      githubUrl: "https://github.com/muhammedenesAkbulut/family-album",
       liveUrl: "https://family-album-pink.vercel.app/",
       category: "Full-stack",
     },
@@ -41,9 +38,8 @@ const Projects = () => {
       title: "İçerik Planlama Takvimi",
       description:
         "Sosyal medya ekiplerinin içerik yönetimini kolaylaştırmak için geliştirmekte olduğum uygulamadır. Gönderi, reels ve story gibi içeriklerin tarih bazlı takvim üzerinden planlanabilmesi, medya kütüphanesi ile merkezi içerik yönetimi ve admin paneli üzerinden içerik onayları, kullanıcı yetkilendirmeleri sağlar.",
-      image: null,
+      image: "/images/iceriktakvimi.png",
       technologies: ["React", "Spring Boot", "PostgreSQL"],
-      githubUrl: "https://github.com/muhammedenesAkbulut/content-calendar",
       liveUrl: null,
       category: "Full-stack",
     },
@@ -52,7 +48,7 @@ const Projects = () => {
       title: "RentACar",
       description:
         "Araç kiralama süreçlerini dijital ortama taşıyan, tamamen Spring Boot ile geliştirdiğim bir backend uygulamasıdır. Çok katmanlı mimari ile tasarlanmış, veri tutarlılığı sağlanmış ve ModelMapper ile Entity-DTO dönüşümleri uygulanmıştır.",
-      image: null,
+      image: "/images/RentACarLogo.png",
       technologies: ["Spring Boot", "JPA", "ModelMapper", "PostgreSQL"],
       githubUrl: "https://github.com/muhammedenesAkbulut/rentacar",
       liveUrl: null,
@@ -76,7 +72,7 @@ const Projects = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {projects.map((project, index) => (
               <div
                 key={project.id}

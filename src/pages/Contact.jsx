@@ -19,7 +19,7 @@ const Contact = () => {
       icon: FiMail,
       title: "Email",
       value: "akbltenes638@gmail.com",
-      link: "mailto:akbltenes638@gmail.com",
+      link: null,
     },
     {
       icon: FiMapPin,
