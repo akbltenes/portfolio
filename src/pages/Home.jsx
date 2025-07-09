@@ -89,7 +89,7 @@ const Home = () => {
                   <span>İletişime Geç</span>
                 </Link>
                 <a
-                  href="/enescv (2).pdf"
+                  href="/EnesAKBULUT.pdf"
                   download="Muhammed_Enes_Akbulut_CV.pdf"
                   className="btn-secondary"
                 >
