@@ -18,13 +18,13 @@ const Contact = () => {
     {
       icon: FiMail,
       title: "Email",
-      value: "akbltenes638@gmail.com",
+      value: "akbulutenes.dev@gmail.com",
       link: null,
     },
     {
       icon: FiMapPin,
       title: "Konum",
-      value: "Diyarbakır, Türkiye",
+      value: "Türkiye",
       link: null,
     },
   ];
