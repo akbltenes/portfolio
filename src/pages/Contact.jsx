@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   FiMail,
   FiMapPin,
@@ -6,64 +6,71 @@ import {
   FiGithub,
   FiLinkedin,
 } from "react-icons/fi";
+import { useLanguage } from "../context/LanguageContext";
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: FiPhone,
-      title: "Telefon",
-      value: "+90 531 462 3921",
-      link: null,
-    },
-    {
-      icon: FiMail,
-      title: "Email",
-      value: "akbulutenes.dev@gmail.com",
-      link: null,
-    },
-    {
-      icon: FiMapPin,
-      title: "Konum",
-      value: "Türkiye",
-      link: null,
-    },
-  ];
+  const { t } = useLanguage();
+  const contactInfo = useMemo(
+    () => [
+      {
+        icon: FiPhone,
+        title: t("contact.phone"),
+        value: "+90 531 462 3921",
+        link: null,
+      },
+      {
+        icon: FiMail,
+        title: t("contact.email"),
+        value: "akbulutenes.dev@gmail.com",
+        link: null,
+      },
+      {
+        icon: FiMapPin,
+        title: t("contact.location"),
+        value: t("contact.locationValue"),
+        link: null,
+      },
+    ],
+    [t]
+  );
 
-  const socialLinks = [
-    {
-      name: "GitHub",
-      icon: FiGithub,
-      url: "https://github.com/akbltenes",
-      color: "hover:text-gray-900 dark:hover:text-white",
-    },
-    {
-      name: "LinkedIn",
-      icon: FiLinkedin,
-      url: "https://www.linkedin.com/in/enes-akbulut/",
-      color: "hover:text-blue-600",
-    },
-  ];
+  const socialLinks = useMemo(
+    () => [
+      {
+        name: "GitHub",
+        icon: FiGithub,
+        url: "https://github.com/akbltenes",
+        color: "hover:text-gray-900 dark:hover:text-white",
+      },
+      {
+        name: "LinkedIn",
+        icon: FiLinkedin,
+        url: "https://www.linkedin.com/in/enes-akbulut/",
+        color: "hover:text-blue-600",
+      },
+    ],
+    []
+  );
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section className="section-padding pt-32">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-gradient">İletişim</span>
+              <span className="text-gradient">{t("contact.title")}</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Projeleriniz veya işbirliği fırsatları için benimle iletişime
-              geçebilirsiniz.
+              {t("contact.description")}
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Contact Information */}
               <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
-                <h2 className="text-2xl font-bold mb-6">İletişim Bilgileri</h2>
+                <h2 className="text-2xl font-bold mb-6">
+                  {t("contact.contactInfo")}
+                </h2>
 
                 <div className="space-y-6">
                   {contactInfo.map((info) => (
@@ -98,9 +105,10 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Social Links */}
               <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
-                <h2 className="text-2xl font-bold mb-6">Sosyal Medya</h2>
+                <h2 className="text-2xl font-bold mb-6">
+                  {t("contact.socialMedia")}
+                </h2>
 
                 <div className="space-y-4">
                   {socialLinks.map((social) => (
@@ -119,17 +127,15 @@ const Contact = () => {
                   ))}
                 </div>
 
-                {/* Availability */}
                 <div className="mt-8 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl p-6">
                   <div className="flex items-center space-x-3 mb-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                     <span className="text-green-700 dark:text-green-300 font-medium">
-                      Yeni projeler için müsait
+                      {t("contact.availableText")}
                     </span>
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Freelance projeleri ve uzun vadeli işbirliği tekliflerine
-                    açığım.
+                    {t("contact.availableDesc")}
                   </p>
                 </div>
               </div>

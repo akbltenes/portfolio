@@ -1,33 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "../context/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
-  const navItems = [
-    { name: "Ana Sayfa", path: "/" },
-    { name: "Projeler", path: "/projects" },
-    { name: "İletişim", path: "/contact" },
-  ];
+  const navItems = useMemo(
+    () => [
+      { name: t("nav.home"), path: "/" },
+      { name: t("nav.projects"), path: "/projects" },
+      { name: t("nav.contact"), path: "/contact" },
+    ],
+    [t]
+  );
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = useCallback(
+    (path) => location.pathname === path,
+    [location.pathname]
+  );
+
+  const handleMenuToggle = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
+
+  const handleMenuClose = useCallback(() => {
+    setIsMenuOpen(false);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link
             to="/"
             className="font-script font-bold text-2xl text-gradient hover:scale-105 transition-transform duration-300"
           >
             MEA
           </Link>
-
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -42,29 +56,30 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <ThemeToggle />
+            <div className="flex items-center space-x-2">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center space-x-2">
+            <LanguageToggle />
             <ThemeToggle />
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={handleMenuToggle}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700 animate-fade-in">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleMenuClose}
                 className={`block py-2 px-4 rounded-lg transition-colors duration-300 ${
                   isActive(item.path)
                     ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20"
@@ -81,4 +96,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

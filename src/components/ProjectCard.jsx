@@ -1,24 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, memo } from "react";
 import {
   FiExternalLink,
   FiCode,
   FiChevronDown,
   FiChevronUp,
 } from "react-icons/fi";
+import { useLanguage } from "../context/LanguageContext";
 
 const ProjectCard = ({ project }) => {
-  const {
-    title,
-    description,
-    image,
-    technologies,
-    githubUrl,
-    liveUrl,
-    category,
-  } = project;
+  const { title, description, image, technologies, liveUrl, category } =
+    project;
+  const { t } = useLanguage();
 
   const [isExpanded, setIsExpanded] = useState(false);
   const shouldShowReadMore = description.length > 150;
+
+  const handleToggleExpand = useCallback(() => {
+    setIsExpanded((prev) => !prev);
+  }, []);
 
   return (
     <div
@@ -26,7 +25,6 @@ const ProjectCard = ({ project }) => {
         isExpanded ? "h-auto" : "h-[550px]"
       }`}
     >
-      {/* Project Image */}
       <div className="relative overflow-hidden h-48 bg-gradient-to-br from-primary-100 to-purple-100 dark:from-gray-700 dark:to-gray-600 flex-shrink-0">
         {image ? (
           <img
@@ -34,6 +32,8 @@ const ProjectCard = ({ project }) => {
             alt={title}
             className="w-full h-full object-cover"
             style={title === "RentACar" ? { objectPosition: "center 38%" } : {}}
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
@@ -43,12 +43,9 @@ const ProjectCard = ({ project }) => {
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
-        {/* Project Title */}
         <h3 className="font-bold text-xl mb-3 text-gray-900 dark:text-white">
           {title}
         </h3>
-
-        {/* Project Description */}
         <div className="mb-4 flex-grow">
           <p
             className={`text-gray-600 dark:text-gray-300 ${
@@ -59,17 +56,17 @@ const ProjectCard = ({ project }) => {
           </p>
           {shouldShowReadMore && (
             <button
-              onClick={() => setIsExpanded(!isExpanded)}
+              onClick={handleToggleExpand}
               className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 text-sm font-medium mt-2 flex items-center gap-1 transition-colors"
             >
               {isExpanded ? (
                 <>
-                  <span>Daha az göster</span>
+                  <span>{t("projects.readLess")}</span>
                   <FiChevronUp className="w-4 h-4" />
                 </>
               ) : (
                 <>
-                  <span>Devamını oku</span>
+                  <span>{t("projects.readMore")}</span>
                   <FiChevronDown className="w-4 h-4" />
                 </>
               )}
@@ -77,14 +74,11 @@ const ProjectCard = ({ project }) => {
           )}
         </div>
 
-        {/* Category Hashtag */}
         {category && (
           <p className="text-primary-600 dark:text-primary-400 font-medium mb-4">
             #{category}
           </p>
         )}
-
-        {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-6">
           {technologies.map((tech, index) => (
             <span
@@ -96,7 +90,6 @@ const ProjectCard = ({ project }) => {
           ))}
         </div>
 
-        {/* Action Buttons */}
         <div className="flex space-x-3 mt-auto">
           {liveUrl && (
             <a
@@ -106,7 +99,7 @@ const ProjectCard = ({ project }) => {
               className="flex items-center space-x-2 px-4 py-2 bg-primary-600 text-white rounded-lg"
             >
               <FiExternalLink className="w-4 h-4" />
-              <span>Canlı Demo</span>
+              <span>{t("projects.liveDemo")}</span>
             </a>
           )}
         </div>
@@ -115,4 +108,4 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-export default ProjectCard;
+export default memo(ProjectCard);
