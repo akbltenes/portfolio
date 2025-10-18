@@ -19,6 +19,7 @@ import {
   SiPostgresql,
   SiFirebase,
   SiGit,
+  SiTypescript,
 } from "react-icons/si";
 import { FaJava, FaReact } from "react-icons/fa";
 
@@ -49,7 +50,7 @@ const Home = () => {
       { name: "Spring Boot", icon: SiSpringboot, color: "text-green-500" },
       { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
       { name: "Java", icon: FaJava, color: "text-red-500" },
-      { name: "Node.js", icon: SiNodedotjs, color: "text-green-400" },
+      { name: "TypeScript", icon: SiTypescript, color: "text-blue-400" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-600" },
       { name: "Firebase", icon: SiFirebase, color: "text-orange-500" },
