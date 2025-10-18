@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
-import { Link } from "react-router-dom";
+import React, { useMemo, useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import Button3D from "../components/Button3D";
 import {
   FiMail,
   FiArrowRight,
@@ -8,6 +8,7 @@ import {
   FiServer,
   FiSmartphone,
   FiDownload,
+  FiX,
 } from "react-icons/fi";
 import {
   SiReact,
@@ -23,6 +24,25 @@ import { FaJava, FaReact } from "react-icons/fa";
 
 const Home = () => {
   const { t } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        setIsModalOpen(false);
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [isModalOpen]);
   const technologies = useMemo(
     () => [
       { name: "React", icon: SiReact, color: "text-blue-400" },
@@ -79,51 +99,34 @@ const Home = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-                <Link to="/projects" className="btn-primary">
+                <Button3D to="/projects" className="btn-primary">
                   <span>{t("home.viewProjects")}</span>
                   <FiArrowRight className="ml-2" />
-                </Link>
-                <Link to="/contact" className="btn-secondary">
+                </Button3D>
+                <Button3D to="/contact" className="btn-secondary">
                   <FiMail className="mr-2" />
                   <span>{t("home.contact")}</span>
-                </Link>
-                <a
-                  href="/EnesAKBULUT.pdf"
+                </Button3D>
+                <Button3D
+                  href="/MuhammedEnesAkbulutResume.pdf"
                   download="Muhammed_Enes_Akbulut_CV.pdf"
                   className="btn-secondary"
                 >
                   <FiDownload className="mr-2" />
                   <span>{t("home.downloadCV")}</span>
-                </a>
+                </Button3D>
               </div>
             </div>
 
             <div className="flex justify-center lg:justify-end animate-slide-up">
               <div className="relative">
-                <div className="relative w-auto h-auto max-w-sm max-h-sm">
-                  <div className="relative aspect-square w-80 md:w-96 rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700">
-                    <img
-                      src="/images/profil2.jpg"
-                      alt="Muhammed Enes Akbulut"
-                      className="w-full h-full object-cover scale-110"
-                      style={{ objectPosition: "center 39%" }}
-                      loading="lazy"
-                      decoding="async"
-                      onError={(e) => {
-                        e.target.style.display = "none";
-                        e.target.nextSibling.style.display = "flex";
-                      }}
-                    />
-                    <div
-                      className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-purple-100 dark:from-gray-700 dark:to-gray-600"
-                      style={{ display: "none" }}
-                    >
-                      <FiCode className="text-8xl text-primary-400 dark:text-gray-400" />
-                    </div>
-                  </div>
-
-                  <div className="absolute -inset-2 rounded-full border-2 border-primary-200 dark:border-primary-800 opacity-50"></div>
-                </div>
+                <img
+                  src="/images/profil2.jpg"
+                  alt="Muhammed Enes Akbulut"
+                  className="w-80 h-80 object-cover rounded-full shadow-xl transform hover:scale-105 transition-transform duration-500 cursor-pointer"
+                  loading="lazy"
+                  onClick={() => setIsModalOpen(true)}
+                />
                 <div className="absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-r from-primary-400 to-purple-400 rounded-full opacity-30 animate-bounce-slow"></div>
                 <div
                   className="absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-30 animate-bounce-slow"
@@ -185,6 +188,30 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Photo Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4">
+          <div className="relative max-w-4xl max-h-full">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-200 bg-gray-800 hover:bg-gray-700 rounded-full p-2"
+            >
+              <FiX size={24} />
+            </button>
+            <img
+              src="/images/profil2.jpg"
+              alt="Muhammed Enes Akbulut"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+          <div
+            className="absolute inset-0 -z-10"
+            onClick={() => setIsModalOpen(false)}
+          />
+        </div>
+      )}
     </div>
   );
 };

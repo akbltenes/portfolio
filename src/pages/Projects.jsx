@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import ProjectCard from "../components/ProjectCard";
+import Card3D from "../components/Card3D";
 import { useLanguage } from "../context/LanguageContext";
 
 const Projects = () => {
@@ -75,7 +76,9 @@ const Projects = () => {
                 className="animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <ProjectCard project={project} />
+                <Card3D>
+                  <ProjectCard project={project} />
+                </Card3D>
               </div>
             ))}
           </div>
