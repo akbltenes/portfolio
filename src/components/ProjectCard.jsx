@@ -13,6 +13,7 @@ const ProjectCard = ({ project }) => {
   const { t } = useLanguage();
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
   const shouldShowReadMore = description.length > 150;
 
   const handleToggleExpand = useCallback(() => {
@@ -21,20 +22,31 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className={`bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg flex flex-col ${
+      className={`glass-card flex flex-col group relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-400/30 ${
         isExpanded ? "h-auto" : "h-[550px]"
       }`}
     >
-      <div className="relative overflow-hidden h-48 bg-gradient-to-br from-primary-100 to-purple-100 dark:from-gray-700 dark:to-gray-600 flex-shrink-0">
+      <div className="relative overflow-hidden h-48 bg-gradient-to-br from-primary-400/20 to-accent-400/20 flex-shrink-0 rounded-t-2xl">
         {image ? (
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover"
-            style={title === "RentACar" ? { objectPosition: "center 38%" } : {}}
-            loading="lazy"
-            decoding="async"
-          />
+          <>
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 transition-opacity duration-300"
+              style={{ opacity: imgLoaded ? 1 : 0 }}
+            ></div>
+            <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse" style={{ opacity: imgLoaded ? 0 : 1 }}></div>
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover transition-opacity duration-300"
+              style={{
+                ...(title === "RentACar" ? { objectPosition: "center 38%" } : {}),
+                opacity: imgLoaded ? 1 : 0,
+              }}
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setImgLoaded(true)}
+            />
+          </>
         ) : (
           <div className="w-full h-full flex items-center justify-center">
             <FiCode className="w-16 h-16 text-primary-400 dark:text-gray-400" />
@@ -43,7 +55,14 @@ const ProjectCard = ({ project }) => {
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="font-bold text-xl mb-3 text-gray-900 dark:text-white">
+        {category && (
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="px-3 py-1 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-xs font-bold rounded-full">
+              #{category}
+            </span>
+          </div>
+        )}
+        <h3 className="font-bold text-2xl mb-3 text-gray-900 dark:text-white">
           {title}
         </h3>
         <div className="mb-4 flex-grow">
@@ -57,7 +76,7 @@ const ProjectCard = ({ project }) => {
           {shouldShowReadMore && (
             <button
               onClick={handleToggleExpand}
-              className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 text-sm font-medium mt-2 flex items-center gap-1 transition-colors"
+              className="text-primary-500 dark:text-primary-400 hover:text-accent-500 dark:hover:text-accent-400 text-sm font-bold mt-2 flex items-center gap-1 transition-colors"
             >
               {isExpanded ? (
                 <>
@@ -74,16 +93,11 @@ const ProjectCard = ({ project }) => {
           )}
         </div>
 
-        {category && (
-          <p className="text-primary-600 dark:text-primary-400 font-medium mb-4">
-            #{category}
-          </p>
-        )}
         <div className="flex flex-wrap gap-2 mb-6">
           {technologies.map((tech, index) => (
             <span
               key={index}
-              className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full"
+              className="px-3 py-1 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-gray-700 dark:to-gray-600 border border-primary-200 dark:border-gray-600 text-primary-700 dark:text-gray-200 text-xs font-semibold rounded-full"
             >
               {tech}
             </span>
@@ -96,7 +110,7 @@ const ProjectCard = ({ project }) => {
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 bg-primary-600 text-white rounded-lg"
+              className="flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold shadow-lg"
             >
               <FiExternalLink className="w-4 h-4" />
               <span>{t("projects.liveDemo")}</span>

@@ -33,7 +33,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <header className="sticky top-0 z-50 glass border-b border-primary-200/30 dark:border-gray-700/30 shadow-lg">
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16">
           <Link

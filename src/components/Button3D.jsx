@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Button3D = ({
   children,
@@ -100,7 +101,6 @@ const Button3D = ({
 
   // If it's a React Router Link (to prop)
   if (to) {
-    const { Link } = require("react-router-dom");
     return (
       <Link to={to} {...commonProps}>
         {content}
