@@ -1,5 +1,3 @@
-import React from "react";
-
 const Card3D = ({ children, className = "" }) => {
   return (
     <div className={className}>

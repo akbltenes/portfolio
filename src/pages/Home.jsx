@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import Button3D from "../components/Button3D";
