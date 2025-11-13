@@ -84,7 +84,6 @@ const Button3D = ({
     </>
   );
 
-  // If it's a regular link
   if (href) {
     return (
       <a
@@ -99,7 +98,6 @@ const Button3D = ({
     );
   }
 
-  // If it's a React Router Link (to prop)
   if (to) {
     return (
       <Link to={to} {...commonProps}>
@@ -108,7 +106,6 @@ const Button3D = ({
     );
   }
 
-  // Regular button
   return <button {...commonProps}>{content}</button>;
 };
 

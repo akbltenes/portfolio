@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 
-/**
- * Custom hook to detect if user prefers reduced motion
- * @returns {boolean} true if user prefers reduced motion
- */
 export const usePrefersReducedMotion = () => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -22,9 +18,6 @@ export const usePrefersReducedMotion = () => {
   return prefersReducedMotion;
 };
 
-/**
- * Animation variants for scroll-triggered animations
- */
 export const fadeInUpVariants = {
   hidden: {
     opacity: 0,
@@ -98,9 +91,6 @@ export const scaleInVariants = {
   },
 };
 
-/**
- * Stagger children animation for lists
- */
 export const staggerContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -112,20 +102,14 @@ export const staggerContainerVariants = {
   },
 };
 
-/**
- * Default viewport settings for scroll animations
- */
 export const defaultViewport = {
-  once: false, // Animation triggers every time element enters viewport
-  amount: 0.3, // 30% of element must be visible to trigger
-  margin: "0px 0px -50px 0px", // Trigger slightly before element enters viewport
+  once: false,
+  amount: 0.3,
+  margin: "0px 0px -50px 0px",
 };
 
-/**
- * Viewport settings for project cards (larger elements)
- */
 export const projectViewport = {
   once: false,
-  amount: 0.2, // 20% is better for large project cards
+  amount: 0.2,
   margin: "0px 0px -50px 0px",
 };

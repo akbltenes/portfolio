@@ -71,9 +71,8 @@ const Projects = () => {
     [t]
   );
 
-  // Build localized categories and filters using stable IDs
   const categoryMap = useMemo(() => {
-    const map = new Map(); // id -> label
+    const map = new Map();
     projects.forEach((p) => {
       if (!map.has(p.categoryId)) map.set(p.categoryId, p.category);
     });
@@ -93,7 +92,6 @@ const Projects = () => {
   return (
     <div className="min-h-screen gradient-bg">
       <section className="section-padding pt-32 relative overflow-hidden">
-        {/* Decorative elements */}
         <div className="absolute top-10 left-10 w-96 h-96 bg-accent-400/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-primary-400/20 rounded-full blur-3xl"></div>
         <div className="container-custom relative z-10">
@@ -111,7 +109,6 @@ const Projects = () => {
               {t("projects.description")}
             </p>
           </motion.div>
-          {/* Filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">
             {filters.map((f) => (
               <button

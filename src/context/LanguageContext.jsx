@@ -19,13 +19,11 @@ export const useLanguage = () => {
 
 const translations = {
   tr: {
-    // Navigation
     nav: {
       home: "Ana Sayfa",
       projects: "Projeler",
       contact: "İletişim",
     },
-    // Home Page
     home: {
       title: "Muhammed Enes AKBULUT",
       subtitle: "Full-stack developer",
@@ -55,7 +53,6 @@ const translations = {
         },
       },
     },
-    // Projects Page
     projects: {
       title: "Projelerim",
       description:
@@ -96,7 +93,6 @@ const translations = {
         },
       },
     },
-    // Contact Page
     contact: {
       title: "İletişim",
       description:
@@ -113,13 +109,11 @@ const translations = {
     },
   },
   en: {
-    // Navigation
     nav: {
       home: "Home",
       projects: "Projects",
       contact: "Contact",
     },
-    // Home Page
     home: {
       title: "Muhammed Enes AKBULUT",
       subtitle: "Full-stack developer",
@@ -149,7 +143,6 @@ const translations = {
         },
       },
     },
-    // Projects Page
     projects: {
       title: "My Projects",
       description:
@@ -190,7 +183,6 @@ const translations = {
         },
       },
     },
-    // Contact Page
     contact: {
       title: "Contact",
       description:
