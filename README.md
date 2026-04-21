@@ -2,6 +2,19 @@
 
 Bu proje, kendimi ve çalışmalarımı tanıtmak amacıyla geliştirdiğim, modern tasarım prensiplerine ve kullanıcı deneyimine (UX) odaklanan kişisel portfolyo web sitemdir. Proje, interaktif 3D öğeler ve dinamik özelliklerle zenginleştirilmiştir.
 
+
+Features
+Multi-Language Support: Context API kullanılarak hazırlanan, Türkçe ve İngilizce dil seçenekleri.
+
+Dark/Light Mode: Kullanıcı tercihlerine göre dinamik olarak değişen tema desteği.
+
+3D & Interactive UI: Framer Motion ve özel bileşenlerle hazırlanan interaktif 3D animasyonlar.
+
+Responsive Design: Tüm cihazlarla (Mobil, Tablet, Masaüstü) tam uyumlu arayüz.
+
+Scroll Animations: Sayfa kaydırıldığında tetiklenen modern giriş ve vurgu animasyonları.
+
+
 ## Technologies Used
 
 * **React.js** (Frontend kütüphanesi)
@@ -44,13 +57,4 @@ portfolio/
 
 
 
-Features
-Multi-Language Support: Context API kullanılarak hazırlanan, Türkçe ve İngilizce dil seçenekleri.
 
-Dark/Light Mode: Kullanıcı tercihlerine göre dinamik olarak değişen tema desteği.
-
-3D & Interactive UI: Framer Motion ve özel bileşenlerle hazırlanan interaktif 3D animasyonlar.
-
-Responsive Design: Tüm cihazlarla (Mobil, Tablet, Masaüstü) tam uyumlu arayüz.
-
-Scroll Animations: Sayfa kaydırıldığında tetiklenen modern giriş ve vurgu animasyonları.
