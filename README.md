@@ -3,7 +3,7 @@
 Bu proje, kendimi ve çalışmalarımı tanıtmak amacıyla geliştirdiğim, modern tasarım prensiplerine ve kullanıcı deneyimine (UX) odaklanan kişisel portfolyo web sitemdir. Proje, interaktif 3D öğeler ve dinamik özelliklerle zenginleştirilmiştir.
 
 
-Features
+# Features
 Multi-Language Support: Context API kullanılarak hazırlanan, Türkçe ve İngilizce dil seçenekleri.
 
 Dark/Light Mode: Kullanıcı tercihlerine göre dinamik olarak değişen tema desteği.
