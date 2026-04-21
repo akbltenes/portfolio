@@ -67,7 +67,7 @@ const Home = () => {
       { name: "React Native", icon: FaReact, color: "text-blue-500" },
       { name: "Git", icon: SiGit, color: "text-red-600" },
     ],
-    []
+    [],
   );
 
   const specialties = useMemo(
@@ -88,7 +88,7 @@ const Home = () => {
         description: t("home.specialties.mobile.desc"),
       },
     ],
-    [t]
+    [t],
   );
 
   return (
@@ -97,7 +97,7 @@ const Home = () => {
         {/* Decorative background elements */}
         <div className="absolute top-20 right-10 w-72 h-72 bg-primary-400/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent-400/20 rounded-full blur-3xl"></div>
-        
+
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -129,7 +129,7 @@ const Home = () => {
                   <span>{t("home.contact")}</span>
                 </Button3D>
                 <Button3D
-                  href="/Muhammed_Enes_Akbulut_Cv_Optimized.pdf"
+                  href="/MuhammedEnesAkbulut.pdf"
                   download="Muhammed_Enes_Akbulut_Resume.pdf"
                   className="btn-secondary"
                 >
@@ -149,7 +149,7 @@ const Home = () => {
               <div className="relative group">
                 {/* Animated gradient ring */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 animate-gradient bg-300%"></div>
-                
+
                 <div className="relative p-1 rounded-full bg-gradient-to-r from-primary-400 to-accent-400 animate-gradient bg-300%">
                   <img
                     src="/images/profil2.jpg"
@@ -159,7 +159,7 @@ const Home = () => {
                     onClick={() => setIsModalOpen(true)}
                   />
                 </div>
-                
+
                 {/* Floating orbs */}
                 <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full opacity-60 blur-md animate-float"></div>
                 <div
@@ -253,7 +253,9 @@ const Home = () => {
                 whileHover={prefersReducedMotion ? {} : { scale: 1.15, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <tech.icon className={`text-7xl ${tech.color} mb-3 group-hover:drop-shadow-[0_0_20px_currentColor] transition-all duration-300`} />
+                <tech.icon
+                  className={`text-7xl ${tech.color} mb-3 group-hover:drop-shadow-[0_0_20px_currentColor] transition-all duration-300`}
+                />
                 <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                   {tech.name}
                 </span>
