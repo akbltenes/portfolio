@@ -129,8 +129,8 @@ const Home = () => {
                   <span>{t("home.contact")}</span>
                 </Button3D>
                 <Button3D
-                  href="/MuhammedEnesAkbulutResume.pdf"
-                  download="Muhammed_Enes_Akbulut_CV.pdf"
+                  href="/Muhammed_Enes_Akbulut_Cv_Optimized.pdf"
+                  download="Muhammed_Enes_Akbulut_Resume.pdf"
                   className="btn-secondary"
                 >
                   <FiDownload className="mr-2" />
