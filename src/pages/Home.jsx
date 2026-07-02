@@ -93,12 +93,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen gradient-bg">
-      <section className="section-padding pt-32 pb-20 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent-400/20 rounded-full blur-3xl"></div>
-
-        <div className="container-custom relative z-10">
+      <section className="section-padding pt-32 pb-20">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               className="text-center lg:text-left"
@@ -107,15 +103,15 @@ const Home = () => {
               viewport={defaultViewport}
               variants={prefersReducedMotion ? {} : fadeInLeftVariants}
             >
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                <span className="text-gradient">{t("home.title")}</span>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 font-display text-gray-900 dark:text-white">
+                {t("home.title")}
               </h1>
 
               <h2 className="text-2xl md:text-3xl text-gradient mb-8 font-medium">
                 {t("home.subtitle")}
               </h2>
 
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 leading-relaxed max-w-xl">
                 {t("home.description")}
               </p>
 
@@ -146,30 +142,16 @@ const Home = () => {
               viewport={defaultViewport}
               variants={prefersReducedMotion ? {} : fadeInRightVariants}
             >
-              <div className="relative group">
-                {/* Animated gradient ring */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 animate-gradient bg-300%"></div>
-
-                <div className="relative p-1 rounded-full bg-gradient-to-r from-primary-400 to-accent-400 animate-gradient bg-300%">
+              <div className="relative">
+                <div className="relative p-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
                   <img
                     src="/images/profil2.jpg"
                     alt="Muhammed Enes Akbulut"
-                    className="w-80 h-80 object-cover rounded-full shadow-2xl transform hover:scale-105 transition-all duration-500 cursor-pointer border-4 border-white dark:border-gray-900"
+                    className="w-72 h-72 md:w-80 md:h-80 object-cover rounded-xl"
                     loading="lazy"
                     onClick={() => setIsModalOpen(true)}
                   />
                 </div>
-
-                {/* Floating orbs */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full opacity-60 blur-md animate-float"></div>
-                <div
-                  className="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-accent-400 to-neon-pink rounded-full opacity-60 blur-md animate-float"
-                  style={{ animationDelay: "1s" }}
-                ></div>
-                <div
-                  className="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-br from-neon-cyan to-primary-400 rounded-full opacity-40 blur-md animate-float"
-                  style={{ animationDelay: "2s" }}
-                ></div>
               </div>
             </motion.div>
           </div>
@@ -206,8 +188,8 @@ const Home = () => {
                 className="text-center"
                 variants={prefersReducedMotion ? {} : scaleInVariants}
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br from-primary-400 to-accent-400 shadow-lg">
-                  <specialty.icon className="text-4xl text-white" />
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-xl bg-brand-50 dark:bg-brand-900/20">
+                  <specialty.icon className="text-3xl text-brand-600 dark:text-brand-400" />
                 </div>
                 <h4 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
                   {specialty.title}
@@ -221,9 +203,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section-padding relative overflow-hidden">
-        {/* Decorative gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-50/30 to-transparent dark:via-gray-800/30"></div>
+      <section className="section-padding">
         <div className="container-custom">
           <motion.div
             className="text-center mb-16"
@@ -239,7 +219,7 @@ const Home = () => {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 relative z-10"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
             initial="hidden"
             whileInView="visible"
             viewport={defaultViewport}
@@ -248,15 +228,15 @@ const Home = () => {
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.name}
-                className="flex flex-col items-center justify-center group"
+                className="flex flex-col items-center justify-center p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
                 variants={prefersReducedMotion ? {} : scaleInVariants}
-                whileHover={prefersReducedMotion ? {} : { scale: 1.15, y: -10 }}
-                transition={{ duration: 0.3 }}
+                whileHover={prefersReducedMotion ? {} : { y: -4 }}
+                transition={{ duration: 0.2 }}
               >
                 <tech.icon
-                  className={`text-7xl ${tech.color} mb-3 group-hover:drop-shadow-[0_0_20px_currentColor] transition-all duration-300`}
+                  className={`text-5xl ${tech.color} mb-3`}
                 />
-                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   {tech.name}
                 </span>
               </motion.div>

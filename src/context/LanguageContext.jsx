@@ -56,7 +56,7 @@ const translations = {
     projects: {
       title: "Projelerim",
       description:
-        "Modern teknolojiler kullanarak geliştirdiğim projeler. Her biri farklı challenges ve çözümler içeriyor.",
+        "Modern teknolojiler kullanarak geliştirdiğim projeler.",
       readMore: "Devamını oku",
       readLess: "Daha az göster",
       liveDemo: "Canlı Demo",
@@ -146,7 +146,7 @@ const translations = {
     projects: {
       title: "My Projects",
       description:
-        "Projects I developed using modern technologies. Each contains different challenges and solutions.",
+        "Projects I developed using modern technologies.",
       readMore: "Read more",
       readLess: "Show less",
       liveDemo: "Live Demo",

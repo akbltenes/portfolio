@@ -18,11 +18,11 @@ html {
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-primary-500/50;
+    @apply bg-brand-600 hover:bg-brand-700 text-white font-medium py-2 px-6 rounded-lg transition-all duration-200 hover:shadow-md;
   }
   
   .btn-secondary {
-    @apply border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-500 hover:text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30;
+    @apply border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2 px-6 rounded-lg transition-all duration-200;
   }
   
   .section-padding {
@@ -34,48 +34,27 @@ html {
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-500 via-accent-500 to-neon-purple bg-clip-text text-transparent;
-    background-size: 200% auto;
-    animation: gradient 4s linear infinite;
+    @apply bg-gradient-to-r from-brand-600 to-accent-600 bg-clip-text text-transparent;
   }
   
   .font-script {
     font-family: 'Dancing Script', cursive;
   }
 
-  /* Glassmorphism */
+  /* Glassmorphism - minimal */
   .glass {
-    @apply bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-white/20 dark:border-gray-700/30;
+    @apply bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-gray-200 dark:border-gray-700;
   }
 
   .glass-card {
-    @apply glass rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300;
+    @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-200;
   }
 
-  /* Modern gradient backgrounds */
+  /* Clean backgrounds */
   .gradient-bg {
-    @apply bg-gradient-to-br from-primary-50 via-accent-50 to-primary-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900;
+    @apply bg-gray-50 dark:bg-gray-900;
   }
 
-  /* Glow effects */
-  .glow-primary {
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3), 0 0 40px rgba(14, 165, 233, 0.1);
-  }
-
-  .glow-accent {
-    box-shadow: 0 0 20px rgba(217, 70, 239, 0.3), 0 0 40px rgba(217, 70, 239, 0.1);
-  }
-
-  /* Neon border */
-  .neon-border {
-    @apply border border-primary-400/50 dark:border-primary-500/50;
-    box-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
-  }
-
-  .neon-border-accent {
-    @apply border border-accent-400/50 dark:border-accent-500/50;
-    box-shadow: 0 0 10px rgba(217, 70, 239, 0.3);
-  }
 
   .line-clamp-3 {
     overflow: hidden;

@@ -91,10 +91,8 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen gradient-bg">
-      <section className="section-padding pt-32 relative overflow-hidden">
-        <div className="absolute top-10 left-10 w-96 h-96 bg-accent-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-primary-400/20 rounded-full blur-3xl"></div>
-        <div className="container-custom relative z-10">
+      <section className="section-padding pt-32">
+        <div className="container-custom">
           <motion.div
             className="text-center mb-16"
             initial="hidden"
@@ -109,16 +107,16 @@ const Projects = () => {
               {t("projects.description")}
             </p>
           </motion.div>
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
             {filters.map((f) => (
               <button
                 key={f.value}
                 onClick={() => setActiveFilter(f.value)}
                 type="button"
-                className={`px-4 py-2 rounded-full border transition-colors duration-200 ${
+                className={`px-4 py-2 rounded-lg border transition-colors duration-200 ${
                   activeFilter === f.value
-                    ? "bg-primary-600 text-white border-primary-600"
-                    : "bg-transparent text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-primary-50 dark:hover:bg-gray-700"
+                    ? "bg-brand-600 text-white border-brand-600"
+                    : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-brand-500 dark:hover:border-brand-400"
                 }`}
               >
                 {f.label}

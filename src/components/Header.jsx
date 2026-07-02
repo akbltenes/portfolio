@@ -33,12 +33,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 glass border-b border-primary-200/30 dark:border-gray-700/30 shadow-lg">
+    <header className="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16">
           <Link
             to="/"
-            className="font-script font-bold text-2xl text-gradient hover:scale-105 transition-transform duration-300"
+            className="font-display font-bold text-xl text-gray-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors duration-200"
           >
             MEA
           </Link>
@@ -47,10 +47,10 @@ const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`transition-colors duration-300 ${
+                className={`transition-colors duration-200 ${
                   isActive(item.path)
-                    ? "text-primary-600 dark:text-primary-400"
-                    : "text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+                    ? "text-brand-600 dark:text-brand-400 font-medium"
+                    : "text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400"
                 }`}
               >
                 {item.name}
@@ -74,16 +74,16 @@ const Header = () => {
           </div>
         </div>
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700 animate-fade-in">
+          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={handleMenuClose}
-                className={`block py-2 px-4 rounded-lg transition-colors duration-300 ${
+                className={`block py-2 px-4 rounded-lg transition-colors duration-200 ${
                   isActive(item.path)
-                    ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20"
-                    : "text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    ? "text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/20 font-medium"
+                    : "text-gray-600 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-gray-50 dark:hover:bg-gray-800"
                 }`}
               >
                 {item.name}
